@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    <p class="text-dark">-</p>
+<h4 class="display-4">Makers Club <br> Registration</h4>
+    <p>Register here for the website and become <br>the club member so you can get supported! </p>
+    <p class="text-dark">-</p>
+<form method="POST">
+    {# This hidden_tag is a CSRF security feature. #}
+    {{ form.hidden_tag() }}
+    {{ form.email.label }} {{ form.email() }}<br>
+    {{ form.username.label }} {{ form.username() }}<br>
+    {{ form.password.label }} {{ form.password() }}<br>
+    {{ form.pass_confirm.label }} {{ form.pass_confirm() }}<br>
+    <p class="text-dark">-</p>
+    {{ form.submit() }}
+</form>
+{% endblock %}

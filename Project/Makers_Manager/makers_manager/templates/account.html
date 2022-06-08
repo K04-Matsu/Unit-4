@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="bg-dark">
+<div class="jumbotron bg-dark">
+  <div align='center'>
+    <h1 class="lead text-white">Welcome back</h1>
+    <h1 class="display-4 text-white">{{current_user.username}}</h1>
+    <img align='center' src="{{ url_for('static', filename='profile_pics/' + current_user.profile_image) }}">
+    <p class="lead text-white">＿＿＿＿</p>
+    <p class="lead text-white">{{ current_user.email }}</p>
+  </div>
+</div>
+<div class="container border border-white">
+      <p class="text-dark">-</p>
+  <form  method="POST" action = "" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="form-group lead text-white">
+      {{ form.username.label(class="form-group") }}
+      {{form.username(class='form-control')  }}
+    </div>
+    <div class="form-group lead text-white">
+      {{ form.email.label(class="form-group") }}
+      {{form.email(class='form-control')  }}
+    </div>
+            <p class="text-dark">-</p>
+    <div class="form-group text-white">
+      {{ form.picture.label(class="form-group") }}
+      {{ form.picture(class="form-control-file") }}
+    </div>
+    <div class="form-group lead text-white text-center">
+        {{ form.submit(class="btn btn-info") }}
+    </div>
+            <p class="text-dark">-</p>
+  </form>
+
+</div>
+</body>
+
+{% endblock content %}
